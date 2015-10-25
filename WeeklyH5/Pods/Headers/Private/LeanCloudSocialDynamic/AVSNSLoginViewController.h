@@ -1,0 +1,1 @@
+../../../LeanCloudSocialDynamic/Classes/AVSNSLoginViewController.h
