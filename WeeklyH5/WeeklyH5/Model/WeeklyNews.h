@@ -16,8 +16,8 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic, strong) NSDate *time;
-@property (nonatomic, copy) NSString *month;
-@property (nonatomic, copy) NSString *day;
+@property (nonatomic) NSInteger month;
+@property (nonatomic) NSInteger day;
 
 
 @end

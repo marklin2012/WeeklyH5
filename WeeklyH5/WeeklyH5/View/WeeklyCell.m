@@ -20,11 +20,11 @@
     imageWidth = (ScreenWidth - ImageHeadLeadSpace - ImageHeadTrailingSpace - ImageHeadLeadGap*2)/3;
     
     imageHeight = (ScreenWidth - ImageHeadLeadSpace - ImageHeadTrailingSpace) * imageWidth / 8;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     
 }
 
@@ -46,20 +46,29 @@
         
     }
     
-    
     self.titleLabel.text = news.title;
     self.contentLabel.text = news.content;
     if (indexPath.row == 0)
     {
         self.headerView.hidden = NO;
-        self.monthLabel.text = [NSString stringWithFormat:@"%@月",news.month];
-        self.dayLabel.text = news.day;
-        
-        self.ratingHeight = 0;
+        self.monthLabel.text = [NSString stringWithFormat:@"%ld月",news.month];
+        self.dayLabel.text = [NSString stringWithFormat:@"%ld",news.day];;
     }
     else
     {
         self.headerView.hidden = YES;
+    }
+    
+    if (news.rating)
+    {
+        self.ratingView.hidden = NO;
+        self.ratingLabel.text = [NSString stringWithFormat:@"%@", news.rating];
+        self.ratingHeight.constant = 26;
+    }
+    else
+    {
+        self.ratingView.hidden = YES;
+        self.ratingHeight.constant = 0;
     }
 }
 

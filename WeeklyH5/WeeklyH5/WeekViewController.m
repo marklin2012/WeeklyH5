@@ -38,8 +38,9 @@
     
     
     [self.tableView registerNib:[UINib nibWithNibName:@"WeeklyCell" bundle:nil]forCellReuseIdentifier:@"WeeklyCell"];
-    self.tableView.rowHeight = 275;
+//    self.tableView.rowHeight = 275;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.estimatedRowHeight = 275;
     
     [self.tabBarController.tabBar setTintColor:[UIColor colorWithRed:250/255.0 green:0/255.0 blue:66/255.0 alpha:1]];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
