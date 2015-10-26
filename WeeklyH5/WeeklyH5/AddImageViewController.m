@@ -30,7 +30,9 @@ NSString *const AddImageViewControllerCatchImageNotify = @"AddImageViewControlle
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    self.webView.delegate = nil;
     [self.webView stopLoading];
+    [self.webView removeFromSuperview];
 }
 
 - (void)catchImage

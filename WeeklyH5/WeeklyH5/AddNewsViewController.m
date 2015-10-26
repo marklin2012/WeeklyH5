@@ -34,6 +34,7 @@
 @property (nonatomic) CGFloat addImageHeight;
 
 
+
 @end
 
 @implementation AddNewsViewController
@@ -44,12 +45,11 @@
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+    
 }
 
 - (void)viewDidLoad {
@@ -62,7 +62,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(catchImage:) name:AddImageViewControllerCatchImageNotify object:nil];
 }
 
@@ -160,12 +160,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
 }
 
 #pragma mark - Notification
@@ -293,6 +287,10 @@
     self.textvView.text = [webView stringByEvaluatingJavaScriptFromString:@"var a =document.head.getElementsByTagName('meta');var c;for(i=0;i< a.length;i++){var b = a[i];if (b.name == 'description'){c = b.content;}}"];
     
     [ProgressHUD showSuccess:@"网络数据加载完成"];
+    
+    webView.delegate = nil;
+    [webView stopLoading];
+    [webView removeFromSuperview];
 }
 
 #pragma mark - UITextViewDelegate
