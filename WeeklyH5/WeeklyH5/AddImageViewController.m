@@ -11,6 +11,7 @@
 NSString *const AddImageViewControllerCatchImageNotify = @"AddImageViewControllerCatchImageNotify";
 
 @interface AddImageViewController ()
+
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
@@ -24,7 +25,7 @@ NSString *const AddImageViewControllerCatchImageNotify = @"AddImageViewControlle
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(catchImage)];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:CatchImageURI]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlString]]];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

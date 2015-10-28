@@ -285,6 +285,7 @@
     //通过webView读取数据解析html页面头部的内容
     self.textField.text = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.textvView.text = [webView stringByEvaluatingJavaScriptFromString:@"var a =document.head.getElementsByTagName('meta');var c;for(i=0;i< a.length;i++){var b = a[i];if (b.name == 'description'){c = b.content;}}"];
+//    self.textvView.text = [webView stringByEvaluatingJavaScriptFromString:@"c"];
     
     [ProgressHUD showSuccess:@"网络数据加载完成"];
     
@@ -305,6 +306,16 @@
 {
     _showField = textField;
     return YES;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"addImage"])
+    {
+        AddImageViewController *imgCtl = segue.destinationViewController;
+        imgCtl.urlString = _urlString;
+    }
 }
 
 

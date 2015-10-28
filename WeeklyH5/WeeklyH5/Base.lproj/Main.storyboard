@@ -68,14 +68,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将网页的二维码放入框内，即可自动扫描" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-3b-lCo">
-                                <rect key="frame" x="192" y="393" width="216" height="14.5"/>
+                                <rect key="frame" x="192" y="405" width="216" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etV-AS-cYO">
                                 <rect key="frame" x="225" y="225" width="150" height="150"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Z7w-55-1Yb"/>
                                     <constraint firstAttribute="height" constant="150" id="p18-CO-3PM"/>
@@ -84,13 +84,19 @@
                                     <segue destination="ttl-to-cUc" kind="push" identifier="scanToAdd" id="HrW-cD-wg0"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QRBg" translatesAutoresizingMaskIntoConstraints="NO" id="lTc-XE-p5L">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lTc-XE-p5L" firstAttribute="top" secondItem="njP-j6-OfN" secondAttribute="bottom" id="6oY-GL-8bW"/>
+                            <constraint firstAttribute="trailing" secondItem="lTc-XE-p5L" secondAttribute="trailing" id="MGx-ws-ILo"/>
+                            <constraint firstItem="OZ0-CN-Mxa" firstAttribute="top" secondItem="lTc-XE-p5L" secondAttribute="bottom" id="dZi-ZE-5qH"/>
                             <constraint firstItem="PYh-3b-lCo" firstAttribute="centerX" secondItem="Qm8-Na-rvU" secondAttribute="centerX" id="dnc-az-b9K"/>
+                            <constraint firstItem="lTc-XE-p5L" firstAttribute="leading" secondItem="Qm8-Na-rvU" secondAttribute="leading" id="eGG-SC-Gx7"/>
                             <constraint firstItem="etV-AS-cYO" firstAttribute="centerX" secondItem="Qm8-Na-rvU" secondAttribute="centerX" id="gws-iw-TWR"/>
                             <constraint firstItem="etV-AS-cYO" firstAttribute="centerY" secondItem="Qm8-Na-rvU" secondAttribute="centerY" id="tR4-BX-NGD"/>
-                            <constraint firstItem="PYh-3b-lCo" firstAttribute="top" secondItem="etV-AS-cYO" secondAttribute="bottom" constant="18" id="tvS-nD-FO1"/>
+                            <constraint firstItem="PYh-3b-lCo" firstAttribute="top" secondItem="etV-AS-cYO" secondAttribute="bottom" constant="30" id="tvS-nD-FO1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="扫描二维码" id="Akq-tz-m8H"/>
@@ -523,6 +529,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="QRBg" width="322" height="482"/>
         <image name="bg" width="320" height="568"/>
         <image name="category_btn" width="50" height="30"/>
         <image name="category_btn _selected" width="50" height="30"/>
