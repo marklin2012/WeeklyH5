@@ -12,4 +12,6 @@ extern NSString *const AddImageViewControllerCatchImageNotify;
 
 @interface AddImageViewController : UIViewController
 
+@property (nonatomic, copy) NSString *urlString;
+
 @end

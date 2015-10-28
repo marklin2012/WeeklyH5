@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "AddImageViewController.h"
 
 #define ScrollContentHeight 457
 

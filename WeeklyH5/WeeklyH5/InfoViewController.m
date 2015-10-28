@@ -42,9 +42,17 @@
         else
         {
 //            NSString *accessToken = object[@"access_token"];
-//            NSString *username = object[@"username"];
+            NSString *username = object[@"username"];
 //            NSString *avatar = object[@"avatar"];
-//            NSDictionary *rawUser = object[@"raw-user"]; // 
+//            NSDictionary *rawUser = object[@"raw-user"];
+            
+            UIAlertController * alertCtl = [UIAlertController alertControllerWithTitle:@"登陆成功" message:username preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alertCtl addAction:[UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                
+            }]];
+            
+            [self presentViewController:alertCtl animated:YES completion:nil];
         }
     } toPlatform:AVOSCloudSNSQQ];
 }
